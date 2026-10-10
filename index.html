@@ -389,7 +389,7 @@
                         </div>
 
                         <div>
-                            <button onclick="selecionarVersao('LITE')" class="w-full sm:w-auto px-8 py-3.5 font-bold text-sm text-white bg-gradient-to-r from-cyber-orange to-cyber-red rounded-xl shadow-neon-red hover:brightness-110 transition-all flex items-center justify-center gap-2">
+                            <button onclick="selecionarVersao('LITE')" class="w-full sm:w-auto px-8 py-3.5 font-bold text-sm text-white bg-gradient-to-r from-cyber-orange to-cyber-red rounded-lg shadow-neon-red hover:brightness-110 transition-all flex items-center justify-center gap-2">
                                 <i class="fa-solid fa-cart-shopping"></i> Comprar Agora
                             </button>
                         </div>
@@ -745,7 +745,7 @@
         </div>
     </footer>
 
-    <!-- INTERATIVIDADE JAVASCRIPT -->
+    <!-- INTERATIVIDADE JAVASCRIPT CORRIGIDA PARA MOBILE E PC -->
     <script>
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -780,11 +780,10 @@
             }
         }
 
-        let synth = window.speechSynthesis;
         let isSpeaking = false;
 
         function toggleAudioNarration() {
-            if (!synth) {
+            if (!('speechSynthesis' in window)) {
                 alert("Seu navegador não suporta reprodução de áudio.");
                 return;
             }
@@ -795,7 +794,7 @@
             const audioIcon = document.getElementById('audioIcon');
 
             if (isSpeaking) {
-                synth.cancel();
+                window.speechSynthesis.cancel();
                 isSpeaking = false;
                 playIcon.className = "fa-solid fa-play";
                 playLabel.textContent = "Ouvir Locução";
@@ -811,12 +810,9 @@
             utterance.rate = 1.02;
             utterance.pitch = 0.85;
 
-            let voices = synth.getVoices();
-            let selectedVoice = voices.find(v => v.lang.includes('pt') && (v.name.toLowerCase().includes('daniel') || v.name.toLowerCase().includes('antonio') || v.name.toLowerCase().includes('google português do brasil') || v.name.toLowerCase().includes('microsoft ricardo') || v.name.toLowerCase().includes('male')));
-            
-            if (!selectedVoice) {
-                selectedVoice = voices.find(v => v.lang.includes('pt'));
-            }
+            // Busca por uma voz em português disponível no dispositivo móvel ou PC
+            let voices = window.speechSynthesis.getVoices();
+            let selectedVoice = voices.find(v => v.lang.includes('pt') || v.lang.includes('PT'));
             if (selectedVoice) {
                 utterance.voice = selectedVoice;
             }
@@ -845,12 +841,14 @@
                 audioIcon.classList.remove('fa-spin');
             };
 
-            synth.speak(utterance);
+            // Cancela qualquer fala pendente e inicia imediatamente no toque do usuário
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(utterance);
         }
 
         function stopAudioNarration() {
-            if (synth) {
-                synth.cancel();
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
                 isSpeaking = false;
                 const playIcon = document.getElementById('playIcon');
                 const playLabel = document.getElementById('playLabel');
@@ -994,7 +992,6 @@
 
         setTimeout(() => {
             dispararNotificacaoVenda();
-            // Intervalo padronizado em 160.000 ms (~2 minutos e 40 segundos) tanto para PC quanto para Mobile
             setInterval(dispararNotificacaoVenda, 160000);
         }, 10000);
     </script>
