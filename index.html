@@ -6,6 +6,26 @@
     <title>CMV FOOD - Software de Ficha Técnica, Custos e CMV para Hamburguerias e Pizzarias</title>
     <!-- Ícone da Aba (Favicon) Personalizado -->
     <link rel="icon" type="image/png" href="imagens site/Captura de Tela (17).png">
+
+    <!-- Meta Pixel Code (Código Base de Rastreamento) -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    // Substitua SEU_PIXEL_ID_AQUI pelo seu número do Pixel quando criar no Meta
+    fbq('init', 'SEU_PIXEL_ID_AQUI');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
@@ -131,8 +151,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
             <a href="#" class="flex items-center gap-3 group">
-                <div class="h-10 rounded-lg overflow-hidden border border-cyber-orange/40 flex items-center bg-cyber-card px-2">
-                    <img src="imagens site/Captura de Tela (17).png" alt="CMV FOOD Logo" class="h-8 object-contain" onerror="this.src='https://via.placeholder.com/120x40?text=CMV+FOOD'">
+                <!-- Logotipo com Ícone de Gráfico Neon Estilizado -->
+                <div class="h-10 px-3 rounded-xl border border-cyber-orange/60 bg-cyber-card flex items-center justify-center shadow-neon-red">
+                    <i class="fa-solid fa-chart-line text-cyber-orange text-lg"></i>
                 </div>
                 <div class="hidden sm:flex flex-col">
                     <span class="font-tech text-xl font-extrabold tracking-wider text-white">CMV <span class="text-cyber-orange">FOOD</span></span>
@@ -144,7 +165,9 @@
                 <a href="#produtos" class="px-5 py-2 font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-cyber-orange to-cyber-red rounded-lg shadow-neon-red hover:brightness-110 transition-all flex items-center gap-2">
                     <i class="fa-solid fa-box-open"></i> Produtos
                 </a>
+                <a href="#afiliados" class="hover:text-cyber-cyan transition-colors font-semibold">Seja Afiliado</a>
                 <a href="#depoimentos" class="hover:text-cyber-orange transition-colors font-semibold">Casos de Sucesso</a>
+                <a href="#suporte" class="hover:text-green-400 transition-colors font-semibold flex items-center gap-1.5"><i class="fa-brands fa-whatsapp text-green-400"></i> Suporte</a>
             </nav>
 
             <div class="hidden sm:flex items-center gap-4">
@@ -167,7 +190,9 @@
             <a href="#produtos" class="block w-full text-center py-2.5 font-bold text-white bg-gradient-to-r from-cyber-orange to-cyber-red rounded-lg shadow-neon-red">
                 Produtos
             </a>
-            <a href="#depoimentos" class="block py-2 text-gray-300 hover:text-cyber-orange font-medium">Casos de Sucesso</a>
+            <a href="#afiliados" class="block py-2 text-gray-300 hover:text-cyber-cyan font-medium text-center">Seja Afiliado</a>
+            <a href="#depoimentos" class="block py-2 text-gray-300 hover:text-cyber-orange font-medium text-center">Casos de Sucesso</a>
+            <a href="#suporte" class="block py-2 text-green-400 font-medium text-center">WhatsApp / Suporte</a>
             
             <button onclick="toggleTheme()" class="w-full flex items-center justify-center gap-2 py-2 rounded-lg bg-cyber-card border border-gray-700 text-xs font-mono text-gray-300">
                 <i class="fa-solid fa-moon text-cyber-cyan" id="themeIconMobile"></i>
@@ -536,6 +561,102 @@
         </div>
     </section>
 
+    <!-- SEÇÃO: PROGRAMA DE AFILIADOS (DIRECIONANDO PARA OS PRODUTOS NA HOTMART) -->
+    <section id="afiliados" class="py-20 bg-cyber-card border-t border-cyber-cyan/30 relative overflow-hidden">
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-cyber-cyan/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="glass-panel rounded-3xl p-8 sm:p-12 border-2 border-cyber-cyan shadow-neon-cyan">
+                
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="px-3 py-1 rounded-full bg-cyber-cyan/20 border border-cyber-cyan text-cyber-cyan text-xs font-mono font-bold uppercase tracking-wider">Programa de Parceria Oficial</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 font-tech">Seja um <span class="gradient-text-cyan">Afiliado CMV Food</span></h2>
+                    <p class="text-gray-300 text-sm sm:text-base mt-3 leading-relaxed">
+                        Indique o sistema para outros comerciantes e ganhe comissões excelentes de forma automatizada. Escolha abaixo a versão que deseja promover e afilie-se agora mesmo!
+                    </p>
+                </div>
+
+                <!-- Botões de Afiliação na Horizontal (Lite, Pró e Plus) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Afiliado LITE -->
+                    <div class="bg-cyber-bg/90 p-6 rounded-2xl border border-gray-800 flex flex-col justify-between hover:border-cyber-cyan/60 transition-all group">
+                        <div>
+                            <span class="text-[10px] font-mono bg-cyber-orange/20 text-cyber-orange px-2.5 py-1 rounded font-bold uppercase">Versão Essencial</span>
+                            <h3 class="text-xl font-bold text-white mt-3 font-tech">CMV Food Lite</h3>
+                            <p class="text-xs text-gray-400 mt-2 mb-6 leading-relaxed">
+                                Ideal para parceiros que indicam soluções práticas para iniciantes no ramo de alimentação.
+                            </p>
+                        </div>
+                        <!-- Substitua o '#' pelo seu link de afiliação da Hotmart do Lite -->
+                        <a href="#" target="_blank" class="w-full py-3.5 text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-cyber-orange to-cyber-red rounded-xl shadow-neon-red hover:brightness-110 transition-all flex items-center justify-center gap-2 group-hover:scale-[1.02]">
+                            <i class="fa-solid fa-handshake"></i>
+                            <span>Afiliar-se ao Lite</span>
+                        </a>
+                    </div>
+
+                    <!-- Afiliado PRO -->
+                    <div class="bg-cyber-bg/90 p-6 rounded-2xl border-2 border-cyber-cyan shadow-neon-cyan flex flex-col justify-between relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 bg-cyber-cyan text-cyber-bg text-[9px] font-extrabold uppercase font-mono px-3 py-1 rounded-bl-lg">
+                            Mais Indicado
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-mono bg-cyber-cyan/20 text-cyber-cyan px-2.5 py-1 rounded font-bold uppercase">Campeão de Vendas</span>
+                            <h3 class="text-xl font-bold text-white mt-3 font-tech">CMV Food Pro</h3>
+                            <p class="text-xs text-gray-400 mt-2 mb-6 leading-relaxed">
+                                O produto mais desejado pelo mercado. Comissões excelentes e alta conversão de vendas.
+                            </p>
+                        </div>
+                        <!-- Substitua o '#' pelo seu link de afiliação da Hotmart do Pro -->
+                        <a href="#" target="_blank" class="w-full py-3.5 text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-cyber-cyan to-blue-600 rounded-xl shadow-neon-cyan hover:brightness-110 transition-all flex items-center justify-center gap-2 group-hover:scale-[1.02]">
+                            <i class="fa-solid fa-handshake"></i>
+                            <span>Afiliar-se ao Pro</span>
+                        </a>
+                    </div>
+
+                    <!-- Afiliado PLUS -->
+                    <div class="bg-cyber-bg/90 p-6 rounded-2xl border border-gray-800 flex flex-col justify-between hover:border-cyber-purple/60 transition-all group">
+                        <div>
+                            <span class="text-[10px] font-mono bg-cyber-purple/20 text-cyber-purple px-2.5 py-1 rounded font-bold uppercase">Nível Máximo</span>
+                            <h3 class="text-xl font-bold text-white mt-3 font-tech">CMV Food Plus</h3>
+                            <p class="text-xs text-gray-400 mt-2 mb-6 leading-relaxed">
+                                Para público focado em gestão completa, ticket mais alto e maiores comissões por indicação.
+                            </p>
+                        </div>
+                        <!-- Substitua o '#' pelo seu link de afiliação da Hotmart do Plus -->
+                        <a href="#" target="_blank" class="w-full py-3.5 text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-cyber-purple to-pink-600 rounded-xl shadow-neon-purple hover:brightness-110 transition-all flex items-center justify-center gap-2 group-hover:scale-[1.02]">
+                            <i class="fa-solid fa-handshake"></i>
+                            <span>Afiliar-se ao Plus</span>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: SUPORTE E CONTATO DIRETO VIA WHATSAPP (Comunicação com o Wellington - 81 98892-0645) -->
+    <section id="suporte" class="py-16 bg-cyber-bg border-t border-gray-800 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="glass-panel p-8 sm:p-10 rounded-3xl border-2 border-green-500/60 shadow-lg relative overflow-hidden bg-cyber-card/90">
+                <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-green-500 to-emerald-700 border border-green-400 flex items-center justify-center text-white text-2xl mb-4 shadow-lg animate-bounce">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">Precisa de Ajuda ou Quer Fechar Negócio?</h3>
+                <p class="text-gray-300 text-sm sm:text-base max-w-xl mx-auto mb-6 leading-relaxed">
+                    Fale diretamente com o nosso suporte e atendimento comercial via WhatsApp. Tire suas dúvidas sobre instalação, pagamento ou funcionalidades do CMV Food!
+                </p>
+
+                <a href="https://wa.me/5581988920645?text=Olá%20Wellington!%20Estou%20no%20site%20do%20CMV%20Food%20e%20gostaria%20de%20tirar%20dúvidas%20e%20fechar%20negócio." target="_blank" class="inline-flex items-center gap-3 px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl shadow-lg hover:brightness-110 transition-all transform hover:scale-105">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>Conversar com o Suporte no WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- DEPOIMENTOS -->
     <section id="depoimentos" class="py-20 bg-cyber-bg border-t border-gray-800 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -745,7 +866,7 @@
         </div>
     </footer>
 
-    <!-- INTERATIVIDADE JAVASCRIPT CORRIGIDA PARA MOBILE E PC -->
+    <!-- INTERATIVIDADE JAVASCRIPT -->
     <script>
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -810,7 +931,6 @@
             utterance.rate = 1.02;
             utterance.pitch = 0.85;
 
-            // Busca por uma voz em português disponível no dispositivo móvel ou PC
             let voices = window.speechSynthesis.getVoices();
             let selectedVoice = voices.find(v => v.lang.includes('pt') || v.lang.includes('PT'));
             if (selectedVoice) {
@@ -841,7 +961,6 @@
                 audioIcon.classList.remove('fa-spin');
             };
 
-            // Cancela qualquer fala pendente e inicia imediatamente no toque do usuário
             window.speechSynthesis.cancel();
             window.speechSynthesis.speak(utterance);
         }

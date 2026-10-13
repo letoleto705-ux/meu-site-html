@@ -1,14 +1,31 @@
-<https://tinyurl.com/cmvfood4850>
-
-<https://letoleto705-ux.github.io/meu-site-html/>
-
-
 <!DOCTYPE html>
 <html lang="pt-BR" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CMV FOOD - Software de Ficha Técnica, Custos e CMV para Hamburguerias e Pizzarias</title>
+    <!-- Ícone da Aba (Favicon) Personalizado -->
+    <link rel="icon" type="image/png" href="imagens site/Captura de Tela (17).png">
+
+    <!-- Meta Pixel Code (Código Base de Rastreamento) -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    // Substitua SEU_PIXEL_ID_AQUI pelo seu número do Pixel quando criar no Meta
+    fbq('init', 'SEU_PIXEL_ID_AQUI');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
@@ -123,7 +140,7 @@
             to { width: 0%; }
         }
         .animate-progress {
-            animation: timerProgress 5s linear forwards;
+            animation: timerProgress 12s linear forwards;
         }
     </style>
 </head>
@@ -147,7 +164,9 @@
                 <a href="#produtos" class="px-5 py-2 font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-cyber-orange to-cyber-red rounded-lg shadow-neon-red hover:brightness-110 transition-all flex items-center gap-2">
                     <i class="fa-solid fa-box-open"></i> Produtos
                 </a>
+                <a href="#afiliados" class="hover:text-cyber-cyan transition-colors font-semibold">Seja Afiliado</a>
                 <a href="#depoimentos" class="hover:text-cyber-orange transition-colors font-semibold">Casos de Sucesso</a>
+                <a href="#suporte" class="hover:text-green-400 transition-colors font-semibold flex items-center gap-1.5"><i class="fa-brands fa-whatsapp text-green-400"></i> Suporte</a>
             </nav>
 
             <div class="hidden sm:flex items-center gap-4">
@@ -170,7 +189,9 @@
             <a href="#produtos" class="block w-full text-center py-2.5 font-bold text-white bg-gradient-to-r from-cyber-orange to-cyber-red rounded-lg shadow-neon-red">
                 Produtos
             </a>
-            <a href="#depoimentos" class="block py-2 text-gray-300 hover:text-cyber-orange font-medium">Casos de Sucesso</a>
+            <a href="#afiliados" class="block py-2 text-gray-300 hover:text-cyber-cyan font-medium text-center">Seja Afiliado</a>
+            <a href="#depoimentos" class="block py-2 text-gray-300 hover:text-cyber-orange font-medium text-center">Casos de Sucesso</a>
+            <a href="#suporte" class="block py-2 text-green-400 font-medium text-center">WhatsApp / Suporte</a>
             
             <button onclick="toggleTheme()" class="w-full flex items-center justify-center gap-2 py-2 rounded-lg bg-cyber-card border border-gray-700 text-xs font-mono text-gray-300">
                 <i class="fa-solid fa-moon text-cyber-cyan" id="themeIconMobile"></i>
@@ -351,7 +372,7 @@
         </div>
     </section>
 
-    <!-- SEÇÃO NOSSOS PRODUTOS (COM OS TEXTOS PERSONALIZADOS DO W. SANTOS) -->
+    <!-- SEÇÃO NOSSOS PRODUTOS -->
     <section id="produtos" class="py-20 relative bg-cyber-bg border-t border-gray-800/60">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
             
@@ -372,13 +393,13 @@
                         <div>
                             <span class="px-3 py-1 rounded-full bg-cyber-orange/10 border border-cyber-orange/40 text-cyber-orange text-xs font-mono font-bold">Edição Essencial</span>
                             <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-3 font-tech">CMV FOOD LITE</h3>
-                            <!-- TEXTO PERSONALIZADO DO LITE -->
                             <p class="text-gray-200 text-sm sm:text-base mt-3 leading-relaxed font-medium bg-cyber-bg/50 p-4 rounded-xl border border-cyber-orange/20">
-                                Vender muito sem ver a cor do dinheiro é o pesadelo de qualquer dono de pizzaria ou hamburgueria.<br><br>
-                                Chega de adivinhar quanto você ganha em cada pedido!<br><br>
-                                Com o <strong>CMV FOOD</strong>, você domina a ficha técnica, precifica com perfeição e elimina o desperdício na cozinha.<br><br>
-                                Veja suas vendas decolarem no painel e tenha a paz de espírito que você sempre quis para gerir sua empresa.<br><br>
-                                Proteja sua margem de lucro e faça seu comércio prosperar todos os dias.<br>
+                                Conheça agora o <strong>CMV FOOD LITE</strong>, a solução perfeita, leve e eficiente para o seu negócio!<br><br>
+                                Tudo começa na praticidade da tela de <strong>Início</strong>, onde você navega pelo menu principal com total facilidade!<br><br>
+                                Com a <strong>Calculadora de Custos</strong>, você precifica seus produtos com máxima precisão para nunca mais perder margem de lucro.<br><br>
+                                Quer padronizar seus pratos? Na aba <strong>Montar Cardápio</strong> e na seção de <strong>RECEITAS</strong>, você organiza todo o seu cardápio com perfeição!<br><br>
+                                Gerencie seu estoque sem desperdícios no módulo de <strong>Insumos</strong> e mantenha a saúde financeira do seu comércio impecável com a aba de <strong>Custos Operacionais</strong>!<br><br>
+                                Cadastre e organize sua equipe de forma simples no menu <strong>Cadastrar Colaboradores</strong> e mantenha todas as suas informações essenciais 100% protegidas com a função de <strong>Backup</strong>!<br><br>
                                 <strong class="text-cyber-orange">Compre agora, aproveite o momento e o preço!</strong>
                             </p>
                         </div>
@@ -392,7 +413,7 @@
                         </div>
 
                         <div>
-                            <button onclick="selecionarVersao('LITE')" class="w-full sm:w-auto px-8 py-3.5 font-bold text-sm text-white bg-gradient-to-r from-cyber-orange to-cyber-red rounded-xl shadow-neon-red hover:brightness-110 transition-all flex items-center justify-center gap-2">
+                            <button onclick="selecionarVersao('LITE')" class="w-full sm:w-auto px-8 py-3.5 font-bold text-sm text-white bg-gradient-to-r from-cyber-orange to-cyber-red rounded-lg shadow-neon-red hover:brightness-110 transition-all flex items-center justify-center gap-2">
                                 <i class="fa-solid fa-cart-shopping"></i> Comprar Agora
                             </button>
                         </div>
@@ -431,13 +452,17 @@
                         <div>
                             <span class="px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/40 text-cyber-cyan text-xs font-mono font-bold">Edição Comercial Completa</span>
                             <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-3 font-tech">CMV FOOD PRO</h3>
-                            <!-- TEXTO PERSONALIZADO DO PRO -->
                             <p class="text-gray-200 text-sm sm:text-base mt-3 leading-relaxed font-medium bg-cyber-bg/50 p-4 rounded-xl border border-cyber-cyan/20">
-                                Sinta o orgulho de olhar para o seu restaurante e ver uma operação moderna, ágil e altamente rentável.<br><br>
-                                O <strong>CMV FOOD</strong> conecta o seu estoque, suas receitas e suas vendas em um painel simples e poderoso.<br><br>
-                                Transforme a gestão do seu negócio de alimentação em uma experiência leve e extremamente lucrativa.<br><br>
-                                O futuro do seu comércio começa com a decisão que você toma hoje.<br>
-                                <strong class="text-cyber-cyan">Compre agora, você não vai se arrepender!</strong>
+                                Com o <strong>CMV FOOD PRO</strong>, você não leva apenas as ferramentas essenciais da versão Lite!<br><br>
+                                Na tela de <strong>Início</strong>, você tem navegação rápida e intuitiva.<br><br>
+                                Na <strong>Calculadora de Custos</strong>, você precifica cada prato sem margem para erros!<br><br>
+                                Organize e padronize seu cardápio com perfeição nos módulos de <strong>Montar Cardápio</strong> e <strong>RECEITAS</strong>.<br><br>
+                                Elimine o desperdício controlando o estoque na aba <strong>Insumos</strong>, garanta a saúde financeira na aba <strong>Custos Operacionais</strong>, gerencie sua equipe no <strong>Cadastrar Colaboradores</strong> e proteja todos os seus dados no <strong>Backup</strong>!<br><br>
+                                E o grande diferencial? Na versão PRO, você leva também a poderosa aba <strong>Meta</strong>! Defina alvos claros de faturamento, acompanhe o crescimento das suas vendas diárias e saiba exatamente onde o seu negócio vai chegar!<br><br>
+                                Mais controle, mais planejamento e muito mais lucro no seu bolso!<br>
+                                Dê o passo profissional que o seu restaurante precisa hoje mesmo!<br>
+                                Não perca tempo!<br>
+                                <strong class="text-cyber-cyan">Compre agora e mantenha seu comércio vendendo muito!</strong>
                             </p>
                         </div>
                         
@@ -489,13 +514,12 @@
                         <div>
                             <span class="px-3 py-1 rounded-full bg-cyber-purple/20 border border-cyber-purple/60 text-cyber-purple text-xs font-mono font-bold">Padrão Ouro ★ Nível Máximo</span>
                             <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-3 font-tech">CMV FOOD PLUS</h3>
-                            <!-- TEXTO PERSONALIZADO DO PLUS -->
                             <p class="text-gray-200 text-sm sm:text-base mt-3 leading-relaxed font-medium bg-cyber-bg/50 p-4 rounded-xl border border-cyber-purple/20">
-                                Seu comércio vivo, forte e crescendo todos os dias!<br><br>
-                                O <strong>CMV FOOD</strong> é o segredo por trás das pizzarias e hamburguerias de maior sucesso.<br><br>
-                                Controle fichas técnicas, margens de lucro e estoque em tempo real com a tecnologia que o seu negócio precisa.<br><br>
-                                Não permita que pequenos erros matem o seu lucro no fim do mês.<br>
-                                Invista na inteligência do seu restaurante hoje mesmo!<br>
+                                A partir da tela inicial do <strong>Início</strong>, você tem o controle total na palma da mão!<br><br>
+                                Com a <strong>Calculadora de Custos</strong>, você precifica cada prato com precisão cirúrgica. Na aba <strong>Montar Cardápio</strong> e no módulo de <strong>Receitas</strong>, você organiza seus pratos dos sonhos!<br><br>
+                                Controle milimetricamente o seu estoque com o cadastro de <strong>Insumos</strong> e não deixe nenhum centavo escapar na aba de <strong>Custos Operacionais</strong>!<br><br>
+                                Gerencie sua equipe com facilidade na aba <strong>Cadastrar Colaboradores</strong>, defina objetivos ousados no painel de <strong>Meta</strong> e domine o seu mercado organizando toda a sua <strong>Base de Clientes</strong>!<br><br>
+                                Fidelize e encante cada comprador com a ferramenta de <strong>Pós-Venda</strong> e durma com total tranquilidade sabendo que todos os seus dados estão protegidos pela função de <strong>Backup automático</strong>!<br><br>
                                 <strong class="text-cyber-purple">Compre agora e mantenha seu comércio vendendo muito!</strong>
                             </p>
                         </div>
@@ -533,6 +557,102 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- SEÇÃO: PROGRAMA DE AFILIADOS (DIRECIONANDO PARA OS PRODUTOS NA HOTMART) -->
+    <section id="afiliados" class="py-20 bg-cyber-card border-t border-cyber-cyan/30 relative overflow-hidden">
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-cyber-cyan/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="glass-panel rounded-3xl p-8 sm:p-12 border-2 border-cyber-cyan shadow-neon-cyan">
+                
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="px-3 py-1 rounded-full bg-cyber-cyan/20 border border-cyber-cyan text-cyber-cyan text-xs font-mono font-bold uppercase tracking-wider">Programa de Parceria Oficial</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 font-tech">Seja um <span class="gradient-text-cyan">Afiliado CMV Food</span></h2>
+                    <p class="text-gray-300 text-sm sm:text-base mt-3 leading-relaxed">
+                        Indique o sistema para outros comerciantes e ganhe comissões excelentes de forma automatizada pela Hotmart. Escolha abaixo a versão que deseja promover e afilie-se agora mesmo!
+                    </p>
+                </div>
+
+                <!-- Botões de Afiliação na Horizontal (Lite, Pró e Plus) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Afiliado LITE -->
+                    <div class="bg-cyber-bg/90 p-6 rounded-2xl border border-gray-800 flex flex-col justify-between hover:border-cyber-cyan/60 transition-all group">
+                        <div>
+                            <span class="text-[10px] font-mono bg-cyber-orange/20 text-cyber-orange px-2.5 py-1 rounded font-bold uppercase">Versão Essencial</span>
+                            <h3 class="text-xl font-bold text-white mt-3 font-tech">CMV Food Lite</h3>
+                            <p class="text-xs text-gray-400 mt-2 mb-6 leading-relaxed">
+                                Ideal para parceiros que indicam soluções práticas para iniciantes no ramo de alimentação.
+                            </p>
+                        </div>
+                        <!-- Substitua o '#' pelo seu link de afiliação da Hotmart do Lite -->
+                        <a href="#" target="_blank" class="w-full py-3.5 text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-cyber-orange to-cyber-red rounded-xl shadow-neon-red hover:brightness-110 transition-all flex items-center justify-center gap-2 group-hover:scale-[1.02]">
+                            <i class="fa-solid fa-handshake"></i>
+                            <span>Afiliar-se ao Lite</span>
+                        </a>
+                    </div>
+
+                    <!-- Afiliado PRO -->
+                    <div class="bg-cyber-bg/90 p-6 rounded-2xl border-2 border-cyber-cyan shadow-neon-cyan flex flex-col justify-between relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 bg-cyber-cyan text-cyber-bg text-[9px] font-extrabold uppercase font-mono px-3 py-1 rounded-bl-lg">
+                            Mais Indicado
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-mono bg-cyber-cyan/20 text-cyber-cyan px-2.5 py-1 rounded font-bold uppercase">Campeão de Vendas</span>
+                            <h3 class="text-xl font-bold text-white mt-3 font-tech">CMV Food Pro</h3>
+                            <p class="text-xs text-gray-400 mt-2 mb-6 leading-relaxed">
+                                O produto mais desejado pelo mercado. Comissões excelentes e alta conversão de vendas.
+                            </p>
+                        </div>
+                        <!-- Substitua o '#' pelo seu link de afiliação da Hotmart do Pro -->
+                        <a href="#" target="_blank" class="w-full py-3.5 text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-cyber-cyan to-blue-600 rounded-xl shadow-neon-cyan hover:brightness-110 transition-all flex items-center justify-center gap-2 group-hover:scale-[1.02]">
+                            <i class="fa-solid fa-handshake"></i>
+                            <span>Afiliar-se ao Pro</span>
+                        </a>
+                    </div>
+
+                    <!-- Afiliado PLUS -->
+                    <div class="bg-cyber-bg/90 p-6 rounded-2xl border border-gray-800 flex flex-col justify-between hover:border-cyber-purple/60 transition-all group">
+                        <div>
+                            <span class="text-[10px] font-mono bg-cyber-purple/20 text-cyber-purple px-2.5 py-1 rounded font-bold uppercase">Nível Máximo</span>
+                            <h3 class="text-xl font-bold text-white mt-3 font-tech">CMV Food Plus</h3>
+                            <p class="text-xs text-gray-400 mt-2 mb-6 leading-relaxed">
+                                Para público focado em gestão completa, ticket mais alto e maiores comissões por indicação.
+                            </p>
+                        </div>
+                        <!-- Substitua o '#' pelo seu link de afiliação da Hotmart do Plus -->
+                        <a href="#" target="_blank" class="w-full py-3.5 text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-cyber-purple to-pink-600 rounded-xl shadow-neon-purple hover:brightness-110 transition-all flex items-center justify-center gap-2 group-hover:scale-[1.02]">
+                            <i class="fa-solid fa-handshake"></i>
+                            <span>Afiliar-se ao Plus</span>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: SUPORTE E CONTATO DIRETO VIA WHATSAPP (Comunicação com o Wellington - 81 98892-0645) -->
+    <section id="suporte" class="py-16 bg-cyber-bg border-t border-gray-800 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="glass-panel p-8 sm:p-10 rounded-3xl border-2 border-green-500/60 shadow-lg relative overflow-hidden bg-cyber-card/90">
+                <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-green-500 to-emerald-700 border border-green-400 flex items-center justify-center text-white text-2xl mb-4 shadow-lg animate-bounce">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">Precisa de Ajuda ou Quer Fechar Negócio?</h3>
+                <p class="text-gray-300 text-sm sm:text-base max-w-xl mx-auto mb-6 leading-relaxed">
+                    Fale diretamente com o nosso suporte e atendimento comercial via WhatsApp. Tire suas dúvidas sobre instalação, pagamento ou funcionalidades do CMV Food!
+                </p>
+
+                <a href="https://wa.me/5581988920645?text=Olá%20Wellington!%20Estou%20no%20site%20do%20CMV%20Food%20e%20gostaria%20de%20tirar%20dúvidas%20e%20fechar%20negócio." target="_blank" class="inline-flex items-center gap-3 px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl shadow-lg hover:brightness-110 transition-all transform hover:scale-105">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>Conversar com o Suporte no WhatsApp</span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -708,25 +828,25 @@
         </div>
     </section>
 
-    <!-- POP-UP DE VENDAS RESTRITO (ATIVO EM DESKTOP E MOBILE) -->
-    <div id="salesNotification" class="fixed bottom-6 left-6 z-50 transform translate-y-40 opacity-0 transition-all duration-500 ease-in-out pointer-events-none max-w-md w-full">
-        <div class="glass-panel p-5 rounded-2xl border-2 border-green-500 shadow-2xl bg-cyber-card/95 relative overflow-hidden">
+    <!-- POP-UP DE VENDAS COMPACTO E FONTES AJUSTADAS NO MOBILE -->
+    <div id="salesNotification" class="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50 transform translate-y-40 opacity-0 transition-all duration-500 ease-in-out pointer-events-none max-w-[260px] sm:max-w-sm w-full">
+        <div class="glass-panel p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border-2 border-green-500 shadow-2xl bg-cyber-card/95 relative overflow-hidden">
             <div class="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-green-400 to-cyber-cyan w-full" id="notifProgressBar"></div>
 
-            <div class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-700 border border-green-400 flex items-center justify-center shrink-0 shadow-lg animate-pulse">
-                    <i class="fa-solid fa-bag-shopping text-white text-xl"></i>
+            <div class="flex items-center gap-2.5 sm:gap-3">
+                <div class="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-gradient-to-br from-green-500 to-emerald-700 border border-green-400 flex items-center justify-center shrink-0 shadow-md animate-pulse">
+                    <i class="fa-solid fa-bag-shopping text-white text-xs sm:text-base"></i>
                 </div>
 
-                <div class="flex-1">
-                    <div class="flex items-center justify-between mb-1">
-                        <span class="text-[10px] font-extrabold font-mono uppercase bg-green-500/20 text-green-400 px-2 py-0.5 rounded border border-green-500/40">
-                            ✓ Nova Compra Realizada
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between mb-0.5">
+                        <span class="text-[8px] sm:text-[10px] font-extrabold font-mono uppercase bg-green-500/20 text-green-400 px-1 py-0.5 rounded border border-green-500/40">
+                            ✓ Nova Compra
                         </span>
-                        <span class="text-[10px] font-mono text-gray-400">Agora mesmo</span>
+                        <span class="text-[8px] sm:text-[10px] font-mono text-gray-400">Agora mesmo</span>
                     </div>
-                    <p class="text-sm font-extrabold text-white" id="notifCliente">Guilherme Alencar</p>
-                    <p class="text-xs font-semibold text-cyber-purple mt-0.5" id="notifProduto">Adquiriu a versão <span class="underline">CMV FOOD PLUS</span></p>
+                    <p class="text-[11px] sm:text-sm font-extrabold text-white truncate" id="notifCliente">Guilherme Alencar</p>
+                    <p class="text-[9px] sm:text-xs font-semibold text-cyber-purple mt-0.5 truncate" id="notifProduto">Adquiriu <span class="underline">CMV FOOD PLUS</span></p>
                 </div>
             </div>
         </div>
@@ -780,11 +900,10 @@
             }
         }
 
-        let synth = window.speechSynthesis;
         let isSpeaking = false;
 
         function toggleAudioNarration() {
-            if (!synth) {
+            if (!('speechSynthesis' in window)) {
                 alert("Seu navegador não suporta reprodução de áudio.");
                 return;
             }
@@ -795,7 +914,7 @@
             const audioIcon = document.getElementById('audioIcon');
 
             if (isSpeaking) {
-                synth.cancel();
+                window.speechSynthesis.cancel();
                 isSpeaking = false;
                 playIcon.className = "fa-solid fa-play";
                 playLabel.textContent = "Ouvir Locução";
@@ -811,12 +930,8 @@
             utterance.rate = 1.02;
             utterance.pitch = 0.85;
 
-            let voices = synth.getVoices();
-            let selectedVoice = voices.find(v => v.lang.includes('pt') && (v.name.toLowerCase().includes('daniel') || v.name.toLowerCase().includes('antonio') || v.name.toLowerCase().includes('google português do brasil') || v.name.toLowerCase().includes('microsoft ricardo') || v.name.toLowerCase().includes('male')));
-            
-            if (!selectedVoice) {
-                selectedVoice = voices.find(v => v.lang.includes('pt'));
-            }
+            let voices = window.speechSynthesis.getVoices();
+            let selectedVoice = voices.find(v => v.lang.includes('pt') || v.lang.includes('PT'));
             if (selectedVoice) {
                 utterance.voice = selectedVoice;
             }
@@ -845,12 +960,13 @@
                 audioIcon.classList.remove('fa-spin');
             };
 
-            synth.speak(utterance);
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(utterance);
         }
 
         function stopAudioNarration() {
-            if (synth) {
-                synth.cancel();
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
                 isSpeaking = false;
                 const playIcon = document.getElementById('playIcon');
                 const playLabel = document.getElementById('playLabel');
@@ -975,7 +1091,7 @@
 
             const cliente = compradoresFicticios[indexNotificacao];
             notifCliente.textContent = cliente.nome;
-            notifProduto.innerHTML = `Adquiriu a versão <strong class="text-white underline">${cliente.versao}</strong>`;
+            notifProduto.innerHTML = `Adquiriu <strong class="text-white underline">${cliente.versao}</strong>`;
 
             progressBar.classList.remove('animate-progress');
             void progressBar.offsetWidth;
@@ -987,15 +1103,15 @@
             setTimeout(() => {
                 notif.classList.remove('translate-y-0', 'opacity-100');
                 notif.classList.add('translate-y-40', 'opacity-0', 'pointer-events-none');
-            }, 5000);
+            }, 6000);
 
             indexNotificacao = (indexNotificacao + 1) % compradoresFicticios.length;
         }
 
         setTimeout(() => {
             dispararNotificacaoVenda();
-            setInterval(dispararNotificacaoVenda, 40000);
-        }, 3000);
+            setInterval(dispararNotificacaoVenda, 160000);
+        }, 10000);
     </script>
 </body>
 </html>
