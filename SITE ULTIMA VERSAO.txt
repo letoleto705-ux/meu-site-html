@@ -1,3 +1,6 @@
+nunca mudar = videos/WhatsApp Video 2026-10-13 at 18.40.59.mp4
+
+
 <!DOCTYPE html>
 <html lang="pt-BR" class="dark scroll-smooth">
 <head>
@@ -151,8 +154,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
             <a href="#" class="flex items-center gap-3 group">
-                <div class="h-10 rounded-lg overflow-hidden border border-cyber-orange/40 flex items-center bg-cyber-card px-2">
-                    <img src="imagens site/Captura de Tela (17).png" alt="CMV FOOD Logo" class="h-8 object-contain" onerror="this.src='https://via.placeholder.com/120x40?text=CMV+FOOD'">
+                <!-- Logotipo com Ícone de Gráfico Neon Estilizado -->
+                <div class="h-10 px-3 rounded-xl border border-cyber-orange/60 bg-cyber-card flex items-center justify-center shadow-neon-red">
+                    <i class="fa-solid fa-chart-line text-cyber-orange text-lg"></i>
                 </div>
                 <div class="hidden sm:flex flex-col">
                     <span class="font-tech text-xl font-extrabold tracking-wider text-white">CMV <span class="text-cyber-orange">FOOD</span></span>
@@ -571,7 +575,7 @@
                     <span class="px-3 py-1 rounded-full bg-cyber-cyan/20 border border-cyber-cyan text-cyber-cyan text-xs font-mono font-bold uppercase tracking-wider">Programa de Parceria Oficial</span>
                     <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 font-tech">Seja um <span class="gradient-text-cyan">Afiliado CMV Food</span></h2>
                     <p class="text-gray-300 text-sm sm:text-base mt-3 leading-relaxed">
-                        Indique o sistema para outros comerciantes e ganhe comissões excelentes de forma automatizada pela Hotmart. Escolha abaixo a versão que deseja promover e afilie-se agora mesmo!
+                        Indique o sistema para outros comerciantes e ganhe comissões excelentes de forma automatizada. Escolha abaixo a versão que deseja promover e afilie-se agora mesmo!
                     </p>
                 </div>
 
