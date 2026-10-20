@@ -672,7 +672,7 @@
                         <i class="fa-solid fa-chevron-down text-cyber-cyan transition-transform duration-300" id="faqIcon4"></i>
                     </button>
                     <div id="faqContent4" class="hidden px-5 pb-5 text-sm text-gray-300 border-t border-gray-800/60 pt-3 leading-relaxed">
-                        Sim! Oferecemos garantia incondicional de 7 dias pela Hotmart. Se você não ficar satisfeito, pode solicitar o reembolso com total tranquilidad.
+                        Sim! Oferecemos garantia incondicional de 7 dias pela Hotmart. Se você não ficar satisfeito, pode solicitar o reembolso com total tranquilidade.
                     </div>
                 </div>
             </div>
@@ -1136,9 +1136,9 @@
             btnSubmit.disabled = true;
             btnSubmit.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Cadastrando seu cupom...`;
 
-            // ENVIO DOS DADOS PARA O SEU BACKEND NO RENDER -> BANCO NEON
+            // ENVIO CORRETO DIRETO PARA A ROTA DA API NO RENDER
             try {
-                await fetch('https://cmv-food-api.onrender.com/api/leads', {
+                await fetch('https://meu-site-html-3fzi.onrender.com/api/leads', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -1148,7 +1148,7 @@
                     })
                 });
             } catch (err) {
-                console.log('Envio processado localmente:', err);
+                console.log('Envio processado:', err);
             }
 
             // CONFIGURAÇÃO DOS PREÇOS REVELADOS COM A ANCORAGEM DOS 20% OFF
