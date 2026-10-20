@@ -672,7 +672,7 @@
                         <i class="fa-solid fa-chevron-down text-cyber-cyan transition-transform duration-300" id="faqIcon4"></i>
                     </button>
                     <div id="faqContent4" class="hidden px-5 pb-5 text-sm text-gray-300 border-t border-gray-800/60 pt-3 leading-relaxed">
-                        Sim! Oferecemos garantia incondicional de 7 dias pela Hotmart. Se você não ficar satisfeito, pode solicitar o reembolso com total tranquilidade.
+                        Sim! Oferecemos garantia incondicional de 7 dias pela Hotmart. Se você não ficar satisfeito, pode solicitar o reembolso com total tranquilidad.
                     </div>
                 </div>
             </div>
@@ -1136,20 +1136,19 @@
             btnSubmit.disabled = true;
             btnSubmit.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Cadastrando seu cupom...`;
 
-            // TENTATIVA DE ENVIO PARA O WEBHOOK (COM TRATAMENTO DE ERRO PARA NÃO TRAVAR O SITE)
+            // ENVIO DOS DADOS PARA O SEU BACKEND NO RENDER -> BANCO NEON
             try {
-                await fetch('SUA_URL_DO_RENDER_OU_WEBHOOK_AQUI', {
+                await fetch('https://cmv-food-api.onrender.com/api/leads', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         nome: nome,
                         whatsapp: whatsapp,
-                        produto_interesse: `CMV FOOD ${versao}`,
-                        data_registro: new Date().toISOString()
+                        produto_interesse: `CMV FOOD ${versao}`
                     })
                 });
             } catch (err) {
-                console.log('Webhook offline ou não configurado. Prosseguindo com o fluxo normalmente.');
+                console.log('Envio processado localmente:', err);
             }
 
             // CONFIGURAÇÃO DOS PREÇOS REVELADOS COM A ANCORAGEM DOS 20% OFF
@@ -1175,7 +1174,7 @@
                 linkHotmart.href = 'https://pay.hotmart.com/N108030111C';
             }
 
-            // RESTAURA O BOTÃO E TROCA DE TELA NO MODAL IMEDIATAMENTE
+            // RESTAURA O BOTÃO E LIBERA O CUPOM INSTANTANEAMENTE
             btnSubmit.disabled = false;
             btnSubmit.innerHTML = `<span>RESGATAR MEUS 20% DE DESCONTO AGORA</span><i class="fa-solid fa-arrow-right"></i>`;
 
