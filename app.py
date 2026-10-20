@@ -4,7 +4,8 @@ from flask_cors import CORS
 import psycopg2
 
 app = Flask(__name__)
-CORS(app)
+# Libera totalmente o acesso para o GitHub Pages e qualquer navegador
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 DATABASE_URL = os.environ.get('DATABASE_URL')
 
@@ -18,7 +19,8 @@ def home():
 
 @app.route('/api/leads', methods=['POST'])
 def salvar_lead():
-    data = request.get_json()
+    # Garante suporte a requisições com cabeçalho JSON
+    data = request.get_json(force=True, silent=True)
     
     if not data:
         return jsonify({'status': 'erro', 'mensagem': 'Nenhum dado enviado'}), 400
