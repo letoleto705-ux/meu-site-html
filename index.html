@@ -1103,7 +1103,7 @@
             }
         }
 
-        // LÓGICA DO MODAL DE CAPTURA DE LEAD E ANCORAGEM DE PREÇO COM 20% OFF
+        // LÓGICA DO MODAL DE CAPTURA DE LEAD E ANCORAGEM DE PREÇO COM DIAGNÓSTICO
         function abrirModalCapta(versao) {
             document.getElementById('versaoEscolhidaModal').value = versao;
             document.getElementById('etapaFormulario').classList.remove('hidden');
@@ -1136,9 +1136,9 @@
             btnSubmit.disabled = true;
             btnSubmit.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Cadastrando seu cupom...`;
 
-            // ENVIO CORRETO DIRETO PARA A ROTA DA API NO RENDER
+            // ENVIO PARA A API DO RENDER COM ALERTA EM CASO DE ERRO
             try {
-                await fetch('https://meu-site-html-3fzi.onrender.com/api/leads', {
+                const resposta = await fetch('https://meu-site-html-3fzi.onrender.com/api/leads', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -1147,11 +1147,27 @@
                         produto_interesse: `CMV FOOD ${versao}`
                     })
                 });
+
+                const resultadoJson = await resposta.json();
+
+                if (!resposta.ok) {
+                    alert('Atenção da API: ' + (resultadoJson.mensagem || 'Erro código ' + resposta.status));
+                    btnSubmit.disabled = false;
+                    btnSubmit.innerHTML = `<span>RESGATAR MEUS 20% DE DESCONTO AGORA</span><i class="fa-solid fa-arrow-right"></i>`;
+                    return;
+                }
+
+                console.log('Sucesso ao salvar no Neon:', resultadoJson);
+
             } catch (err) {
-                console.log('Envio processado:', err);
+                console.error('Erro de conexão:', err);
+                alert('Erro de Conexão: Não foi possível alcançar o servidor no Render. Verifique a internet ou o estado do Web Service.');
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = `<span>RESGATAR MEUS 20% DE DESCONTO AGORA</span><i class="fa-solid fa-arrow-right"></i>`;
+                return;
             }
 
-            // CONFIGURAÇÃO DOS PREÇOS REVELADOS COM A ANCORAGEM DOS 20% OFF
+            // CONFIGURAÇÃO DOS PREÇOS REVELADOS CASO TENHA DADO TUDO CERTO
             const nomeRevelado = document.getElementById('nomeProdutoRevelado');
             const precoDe = document.getElementById('precoDeRevelado');
             const precoPor = document.getElementById('precoPorRevelado');
@@ -1174,7 +1190,7 @@
                 linkHotmart.href = 'https://pay.hotmart.com/N108030111C';
             }
 
-            // RESTAURA O BOTÃO E LIBERA O CUPOM INSTANTANEAMENTE
+            // RESTAURA O BOTÃO E LIBERA O CUPOM
             btnSubmit.disabled = false;
             btnSubmit.innerHTML = `<span>RESGATAR MEUS 20% DE DESCONTO AGORA</span><i class="fa-solid fa-arrow-right"></i>`;
 
