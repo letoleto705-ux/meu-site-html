@@ -4,10 +4,10 @@ from flask_cors import CORS
 import psycopg2
 
 app = Flask(__name__)
-# Libera o acesso do seu site para fazer requisições
+# Libera as requisições vindas do seu site HTML
 CORS(app)
 
-# Pega a URL de conexão do Neon enviada pelo Render
+# Pega a URL de conexão do banco Neon configurada nas variáveis de ambiente do Render
 DATABASE_URL = os.environ.get('DATABASE_URL')
 
 def get_db_connection():
@@ -17,6 +17,10 @@ def get_db_connection():
 @app.route('/api/leads', methods=['POST'])
 def salvar_lead():
     data = request.get_json()
+    
+    if not data:
+        return jsonify({'status': 'erro', 'mensagem': 'Nenhum dado enviado'}), 400
+
     nome = data.get('nome')
     whatsapp = data.get('whatsapp')
     produto_interesse = data.get('produto_interesse')
@@ -28,7 +32,7 @@ def salvar_lead():
         conn = get_db_connection()
         cur = conn.cursor()
         
-        # Insere o lead na tabela que você já criou no Neon
+        # Insere os dados do lead na tabela do banco Neon
         cur.execute(
             """
             INSERT INTO leads_cmv_food (nome, whatsapp, produto_interesse)
