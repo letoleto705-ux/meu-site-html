@@ -1103,7 +1103,7 @@
             }
         }
 
-        // LÓGICA DO MODAL DE CAPTURA DE LEAD E ANCORAGEM DE PREÇO COM DIAGNÓSTICO
+        // LÓGICA DO MODAL DE CAPTURA DE LEAD SEM TRAVAMENTO (BACKGROUND FIRE-AND-FORGET)
         function abrirModalCapta(versao) {
             document.getElementById('versaoEscolhidaModal').value = versao;
             document.getElementById('etapaFormulario').classList.remove('hidden');
@@ -1125,7 +1125,7 @@
             abrirModalCapta(select.value);
         }
 
-        async function processarCapturaLead(e) {
+        function processarCapturaLead(e) {
             e.preventDefault();
             
             const versao = document.getElementById('versaoEscolhidaModal').value;
@@ -1134,47 +1134,25 @@
             const btnSubmit = document.getElementById('btnSubmitLead');
 
             btnSubmit.disabled = true;
-            btnSubmit.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Cadastrando seu cupom...`;
+            btnSubmit.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Liberando seu desconto...`;
 
-            // ENVIO PARA A API DO RENDER COM ALERTA EM CASO DE ERRO
+            // ENVIO EM SEGUNDO PLANO (NÃO TRAVA O CLIENTE SE O RENDER ESTIVER DORMINDO)
             try {
-                const resposta = await fetch('https://meu-site-html-3fzi.onrender.com/api/leads', {
+                fetch('https://meu-site-html-3fzi.onrender.com/api/leads', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         nome: nome,
                         whatsapp: whatsapp,
                         produto_interesse: `CMV FOOD ${versao}`
-                    })
-                });
-
-                const contentType = resposta.headers.get('content-type') || '';
-                const resultadoJson = contentType.includes('application/json')
-                    ? await resposta.json()
-                    : null;
-
-                if (!resposta.ok) {
-                    alert('Atenção da API: ' + (resultadoJson?.mensagem || 'Erro código ' + resposta.status));
-                    btnSubmit.disabled = false;
-                    btnSubmit.innerHTML = `<span>RESGATAR MEUS 20% DE DESCONTO AGORA</span><i class="fa-solid fa-arrow-right"></i>`;
-                    return;
-                }
-
-                if (!resultadoJson) {
-                    throw new Error('A API retornou uma resposta sem JSON.');
-                }
-
-                console.log('Sucesso ao salvar no Neon:', resultadoJson);
-
+                    }),
+                    keepalive: true
+                }).catch(err => console.log('Envio em background:', err));
             } catch (err) {
-                console.error('Erro de conexão:', err);
-                alert('Erro de Conexão: Não foi possível alcançar o servidor no Render. Verifique a internet ou o estado do Web Service.');
-                btnSubmit.disabled = false;
-                btnSubmit.innerHTML = `<span>RESGATAR MEUS 20% DE DESCONTO AGORA</span><i class="fa-solid fa-arrow-right"></i>`;
-                return;
+                // Ignora qualquer falha para nunca impedir a conversão do cliente
             }
 
-            // CONFIGURAÇÃO DOS PREÇOS REVELADOS CASO TENHA DADO TUDO CERTO
+            // CONFIGURAÇÃO DOS PREÇOS REVELADOS
             const nomeRevelado = document.getElementById('nomeProdutoRevelado');
             const precoDe = document.getElementById('precoDeRevelado');
             const precoPor = document.getElementById('precoPorRevelado');
@@ -1197,7 +1175,7 @@
                 linkHotmart.href = 'https://pay.hotmart.com/N108030111C';
             }
 
-            // RESTAURA O BOTÃO E LIBERA O CUPOM
+            // RESTAURA O BOTÃO E LIBERA O CUPOM INSTANTANEAMENTE
             btnSubmit.disabled = false;
             btnSubmit.innerHTML = `<span>RESGATAR MEUS 20% DE DESCONTO AGORA</span><i class="fa-solid fa-arrow-right"></i>`;
 
