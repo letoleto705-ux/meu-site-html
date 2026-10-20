@@ -1148,13 +1148,20 @@
                     })
                 });
 
-                const resultadoJson = await resposta.json();
+                const contentType = resposta.headers.get('content-type') || '';
+                const resultadoJson = contentType.includes('application/json')
+                    ? await resposta.json()
+                    : null;
 
                 if (!resposta.ok) {
-                    alert('Atenção da API: ' + (resultadoJson.mensagem || 'Erro código ' + resposta.status));
+                    alert('Atenção da API: ' + (resultadoJson?.mensagem || 'Erro código ' + resposta.status));
                     btnSubmit.disabled = false;
                     btnSubmit.innerHTML = `<span>RESGATAR MEUS 20% DE DESCONTO AGORA</span><i class="fa-solid fa-arrow-right"></i>`;
                     return;
+                }
+
+                if (!resultadoJson) {
+                    throw new Error('A API retornou uma resposta sem JSON.');
                 }
 
                 console.log('Sucesso ao salvar no Neon:', resultadoJson);
