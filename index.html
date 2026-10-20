@@ -700,7 +700,7 @@
         </div>
     </section>
 
-    <!-- DEPOIMENTOS (OTIMIZADO PARA EXIBIR MÚLTIPLOS CARDS EM TELA LARGA) -->
+    <!-- DEPOIMENTOS -->
     <section id="depoimentos" class="py-20 bg-cyber-bg border-t border-gray-800 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col sm:flex-row items-center justify-between mb-12 gap-4">
@@ -718,7 +718,6 @@
                 </div>
             </div>
 
-            <!-- Grid responsivo ajustado para exibir 2 ou 3 depoimentos lado a lado no desktop -->
             <div id="depoimentosContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-x-auto no-scrollbar scroll-smooth pb-4">
                 <div class="glass-panel p-6 rounded-2xl border border-gray-800 flex flex-col justify-between">
                     <div>
@@ -777,7 +776,7 @@
         </div>
     </section>
 
-    <!-- SEÇÃO DE COMPRA / SELETOR DE VERSÃO (RETORNADA AO FINAL DA PÁGINA) -->
+    <!-- SEÇÃO DE COMPRA / SELETOR DE VERSÃO -->
     <section id="contato" class="py-20 relative bg-cyber-bg border-t border-gray-800">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="glass-panel rounded-3xl p-8 sm:p-12 border border-cyber-orange/30 shadow-neon-red relative overflow-hidden">
@@ -1137,7 +1136,7 @@
             btnSubmit.disabled = true;
             btnSubmit.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Cadastrando seu cupom...`;
 
-            // ENVIO DOS DADOS DO LEAD PARA O SEU WEBHOOK / BANCO DE DADOS NEON
+            // TENTATIVA DE ENVIO PARA O WEBHOOK (COM TRATAMENTO DE ERRO PARA NÃO TRAVAR O SITE)
             try {
                 await fetch('SUA_URL_DO_RENDER_OU_WEBHOOK_AQUI', {
                     method: 'POST',
@@ -1150,7 +1149,7 @@
                     })
                 });
             } catch (err) {
-                console.log('Lead registrado localmente e pronto para o fluxo:', err);
+                console.log('Webhook offline ou não configurado. Prosseguindo com o fluxo normalmente.');
             }
 
             // CONFIGURAÇÃO DOS PREÇOS REVELADOS COM A ANCORAGEM DOS 20% OFF
@@ -1176,7 +1175,10 @@
                 linkHotmart.href = 'https://pay.hotmart.com/N108030111C';
             }
 
-            // TROCA DE TELA NO MODAL
+            // RESTAURA O BOTÃO E TROCA DE TELA NO MODAL IMEDIATAMENTE
+            btnSubmit.disabled = false;
+            btnSubmit.innerHTML = `<span>RESGATAR MEUS 20% DE DESCONTO AGORA</span><i class="fa-solid fa-arrow-right"></i>`;
+
             document.getElementById('etapaFormulario').classList.add('hidden');
             document.getElementById('etapaPrecoRevelado').classList.remove('hidden');
         }
